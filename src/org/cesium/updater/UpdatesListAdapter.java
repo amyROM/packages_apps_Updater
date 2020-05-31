@@ -85,7 +85,6 @@ public class UpdatesListAdapter extends RecyclerView.Adapter<UpdatesListAdapter.
         PAUSE,
         RESUME,
         INSTALL,
-        INFO,
         DELETE,
         CANCEL_INSTALLATION,
         REBOOT,
@@ -213,10 +212,6 @@ public class UpdatesListAdapter extends RecyclerView.Adapter<UpdatesListAdapter.
             setButtonAction(viewHolder.mAction,
                     Utils.canInstall(update) ? Action.INSTALL : Action.DELETE,
                     downloadId, !isBusy());
-        } else if (!Utils.canInstall(update)) {
-            viewHolder.itemView.setOnLongClickListener(
-                    getLongClickListener(update, false, viewHolder.mBuildDate));
-            setButtonAction(viewHolder.mAction, Action.INFO, downloadId, !isBusy());
         } else {
             viewHolder.itemView.setOnLongClickListener(
                     getLongClickListener(update, false, viewHolder.mBuildDate));
@@ -378,12 +373,6 @@ public class UpdatesListAdapter extends RecyclerView.Adapter<UpdatesListAdapter.
                                 Snackbar.LENGTH_LONG);
                     }
                 } : null;
-            }
-            break;
-            case INFO: {
-                button.setText(R.string.action_info);
-                button.setEnabled(enabled);
-                clickListener = enabled ? view -> showInfoDialog() : null;
             }
             break;
             case DELETE: {
@@ -548,24 +537,6 @@ public class UpdatesListAdapter extends RecyclerView.Adapter<UpdatesListAdapter.
         intent.putExtra(ExportUpdateService.EXTRA_SOURCE_FILE, update.getFile());
         intent.putExtra(ExportUpdateService.EXTRA_DEST_FILE, dest);
         mActivity.startService(intent);
-    }
-
-    private void showInfoDialog() {
-        String messageString = String.format(StringGenerator.getCurrentLocale(mActivity),
-                mActivity.getString(R.string.blocked_update_dialog_message),
-                Utils.getUpgradeBlockedURL(mActivity));
-        SpannableString message = new SpannableString(messageString);
-        Linkify.addLinks(message, Linkify.WEB_URLS);
-        if (infoDialog != null) {
-            infoDialog.dismiss();
-        }
-        infoDialog = new AlertDialog.Builder(mActivity)
-                .setTitle(R.string.blocked_update_dialog_title)
-                .setPositiveButton(android.R.string.ok, null)
-                .setMessage(message)
-                .show();
-        TextView textView = (TextView) infoDialog.findViewById(android.R.id.message);
-        textView.setMovementMethod(LinkMovementMethod.getInstance());
     }
 
     private boolean isBatteryLevelOk() {
