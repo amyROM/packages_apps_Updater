@@ -24,7 +24,7 @@ LOCAL_PRIVATE_PLATFORM_APIS := true
 LOCAL_PRIVILEGED_MODULE := true
 LOCAL_PROGUARD_FLAG_FILES := proguard.flags
 
-LOCAL_REQUIRED_MODULES := privapp_whitelist_org.lineageos.updater.xml
+LOCAL_REQUIRED_MODULES := privapp_whitelist_org.cesium.updater.xml
 
 include $(BUILD_PACKAGE)
 
