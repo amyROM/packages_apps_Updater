@@ -36,14 +36,14 @@ android_app {
         proguard_flags_files: ["proguard.flags"],
     },
 
-    required: ["privapp_whitelist_org.cesium.updater.xml"],
+    required: ["privapp_whitelist_org.amyROM.updater.xml"],
 
 }
 
 prebuilt_etc {
-    name: "privapp_whitelist_org.cesium.updater.xml",
+    name: "privapp_whitelist_org.amyROM.updater.xml",
 
-    src: "privapp_whitelist_org.cesium.updater.xml",
+    src: "privapp_whitelist_org.amyROM.updater.xml",
     sub_dir: "permissions",
 
 }

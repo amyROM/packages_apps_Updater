@@ -1,1 +1,1 @@
--keep class org.cesium.updater.ui.FlingBehavior { *; }
+-keep class org.amyROM.updater.ui.FlingBehavior { *; }
