@@ -92,7 +92,7 @@
     <string name="header_title_text">amyROM</string>
     <string name="header_android_version">Android version: <xliff:g id="version" example="7.1.2">%1$s</xliff:g></string>
     <string name="header_security_patch">Security patch level: <xliff:g id="patch" example="January 5 2019">%1$s</xliff:g></string>
-    <string name="header_last_updates_check">Last successful check for update at <xliff:g id="time" example="01:23">%1$s</xliff:g></string>
+    <string name="header_last_updates_check">Last successful check for update: <xliff:g id="date" example="1 January 1970">%1$s</xliff:g> (<xliff:g id="time" example="01:23">%1$s</xliff:g>)</string>
 
     <string name="list_build_version">amyROM <xliff:g id="version" example="14.1">%1$s</xliff:g></string>
     <string name="list_build_version_date">amyROM <xliff:g id="version" example="14.1">%1$s</xliff:g> - <xliff:g id="date" example="July 11, 2017">%2$s</xliff:g></string>
