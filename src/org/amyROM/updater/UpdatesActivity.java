@@ -371,6 +371,7 @@ public class UpdatesActivity extends UpdatesListActivity {
                 PreferenceManager.getDefaultSharedPreferences(this);
         long lastCheck = preferences.getLong(Constants.PREF_LAST_UPDATE_CHECK, -1) / 1000;
         String lastCheckString = getString(R.string.header_last_updates_check,
+                StringGenerator.getDateLocalized(this, DateFormat.LONG, lastCheck),
                 StringGenerator.getTimeLocalized(this, lastCheck));
         TextView headerLastCheck = (TextView) findViewById(R.id.header_last_check);
         headerLastCheck.setText(lastCheckString);
